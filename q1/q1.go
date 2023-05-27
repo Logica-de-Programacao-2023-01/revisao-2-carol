@@ -15,21 +15,18 @@ type Student struct {
 }
 
 func MergeStudentData(studentData1 map[string]Student, studentData2 map[string]Student) map[string]Student {
-	package main
-	// Itera sobre os alunos do mapa studentData1
+	mergedData := make(map[string]Student) 
+
 	for key, student := range studentData1 {
 		mergedData[key] = student
 	}
 
-	// Itera sobre os alunos do mapa studentData2
 	for key, student := range studentData2 {
 		if _, exists := mergedData[key]; exists {
-			// Se o aluno já existir no mapa mergedData, atualiza as matérias e notas
 			for subject, grade := range student.Subjects {
 				mergedData[key].Subjects[subject] = grade
 			}
 		} else {
-			// Se o aluno não existir no mapa mergedData, adiciona-o
 			mergedData[key] = student
 		}
 	}
@@ -38,7 +35,6 @@ func MergeStudentData(studentData1 map[string]Student, studentData2 map[string]S
 }
 
 func main() {
-	// Dados dos alunos para a primeira metade do semestre
 	studentData1 := map[string]Student{
 		"João": {
 			Name: "João",
@@ -57,8 +53,6 @@ func main() {
 			},
 		},
 	}
-
-	// Dados dos alunos para a segunda metade do semestre
 	studentData2 := map[string]Student{
 		"João": {
 			Name: "João",
@@ -79,10 +73,7 @@ func main() {
 		},
 	}
 
-	// Combinar os dados dos alunos
-	mergedData := mergeStudentData(studentData1, studentData2)
-
-	// Imprimir os dados combinados dos alunos
+	mergedData := MergeStudentData(studentData1, studentData2)
 	for _, student := range mergedData {
 		fmt.Printf("Nome: %s\n", student.Name)
 		fmt.Printf("Idade: %d\n", student.Age)
@@ -92,6 +83,7 @@ func main() {
 		}
 		fmt.Println()
 	}
+}
 
 	return nil
 }
