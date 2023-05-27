@@ -20,7 +20,6 @@ type Product struct {
 }
 
 func UpdateStock(product *Product, sales map[string]int) error {
-	package main
 	if prod == nil {
 		return errors.New("product pointer is nil")
 	}
@@ -40,30 +39,4 @@ func UpdateStock(product *Product, sales map[string]int) error {
 	}
 
 	return nil
-}
-
-func main() {
-	product := &Product{
-		Code:     "P001",
-		Name:     "Phone",
-		Price:    1000.0,
-		Quantity: 10,
-	}
-
-	sales := map[string]int{
-		"P001": 3,
-		"P002": 5,
-	}
-
-	err := updateStock(product, sales)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
-
-	fmt.Println("Product:", product.Name)
-	fmt.Println("Quantity in Stock:", product.Quantity)
-}
-
-	return errors.New("Not implemented yet")
 }
