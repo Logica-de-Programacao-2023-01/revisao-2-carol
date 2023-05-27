@@ -37,6 +37,3 @@ func UpdateStock(product *Product, sales map[string]int) error {
 			prod.Quantity = newQuantity
 		}
 	}
-
-	return nil
-}
