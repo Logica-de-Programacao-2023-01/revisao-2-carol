@@ -15,7 +15,7 @@ type Student struct {
 }
 
 func MergeStudentData(studentData1 map[string]Student, studentData2 map[string]Student) map[string]Student {
-	mergedData := make(map[string]Student) 
+	mergedData := make(map[string]Student)
 
 	for key, student := range studentData1 {
 		mergedData[key] = student
@@ -30,60 +30,6 @@ func MergeStudentData(studentData1 map[string]Student, studentData2 map[string]S
 			mergedData[key] = student
 		}
 	}
-
-	return mergedData
-}
-
-func main() {
-	studentData1 := map[string]Student{
-		"João": {
-			Name: "João",
-			Age:  18,
-			Subjects: map[string]float64{
-				"Matemática": 8.5,
-				"Física":     7.8,
-			},
-		},
-		"Maria": {
-			Name: "Maria",
-			Age:  17,
-			Subjects: map[string]float64{
-				"Inglês":  9.0,
-				"História": 8.2,
-			},
-		},
-	}
-	studentData2 := map[string]Student{
-		"João": {
-			Name: "João",
-			Age:  18,
-			Subjects: map[string]float64{
-				"Matemática": 9.0,
-				"Física":     8.2,
-				"Química":    7.5,
-			},
-		},
-		"Ana": {
-			Name: "Ana",
-			Age:  16,
-			Subjects: map[string]float64{
-				"Biologia": 9.5,
-				"Inglês":   8.7,
-			},
-		},
-	}
-
-	mergedData := MergeStudentData(studentData1, studentData2)
-	for _, student := range mergedData {
-		fmt.Printf("Nome: %s\n", student.Name)
-		fmt.Printf("Idade: %d\n", student.Age)
-		fmt.Println("Matérias e Notas:")
-		for subject, grade := range student.Subjects {
-			fmt.Printf("- %s: %.2f\n", subject, grade)
-		}
-		fmt.Println()
-	}
-}
-
+	
 	return nil
 }
